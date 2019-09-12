@@ -47,6 +47,35 @@ on DE.dept_no = D.dept_no
 group by DE.dept_name
 order by AVG (salary) desc;
 
+-- Oldest Employee
+SELECT first_name, last_name, birth_date from Employees
+ORDER by birth_date desc; 
+
+-- Oldest Male Employee
+SELECT first_name, last_name, birth_date, gender 
+FROM employees
+where gender = 'M'
+order by birth_date desc;
+
+-- Oldest Female Employee
+SELECT first_name, last_name, birth_date, gender 
+FROM employees
+where gender = 'F'
+order by birth_date desc;
+
+-- Count employees by Dept
+Select distinct dept_name, 
+	count(*) '# of Employees'
+	from departments D
+    inner join dept_emp DE
+    on D.dept_no = DE.dept_no
+    group by dept_name
+    order by Count(*) Desc;
+    
+    
+
+
+
 
     
     
